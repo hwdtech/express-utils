@@ -1,0 +1,46 @@
+{
+  "name": "express-utils",
+  "version": "0.0.0",
+  "description": "Utility belt for express applications",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged",
+    "prepush": "npm test",
+    "format": "prettier-eslint --write 'lib/**/*.js'",
+    "lint": "eslint lib",
+    "test": "jest"
+  },
+  "author": "Maxim Malov <m.malov.v@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bunyan": "^1.8.8",
+    "bunyan-debug-stream": "^1.0.8",
+    "express-bunyan-logger": "^1.3.1",
+    "nconf": "0.8.4",
+    "nconf-yaml": "1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "3.18.0",
+    "eslint-config-airbnb-base": "11.1.1",
+    "eslint-config-google": "^0.7.1",
+    "eslint-plugin-import": "2.2.0",
+    "husky": "^0.13.2",
+    "jest-cli": "^19.0.2",
+    "lint-staged": "^3.4.0",
+    "prettier-eslint-cli": "^3.1.2"
+  },
+  "lint-staged": {
+    "lib/**/*.js": [
+      "format",
+      "eslint",
+      "git add"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      ".test\\.js$"
+    ],
+    "notify": true
+  }
+}
