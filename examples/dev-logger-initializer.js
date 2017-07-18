@@ -1,4 +1,5 @@
 const LoggerBuilder = require('../lib/LoggerBuilder');
+const LoggerFactory = require('../lib/LoggerFactory');
 
 module.exports = function createDefaultLogger(name, path) {
   const streamConfigurations = [
@@ -13,5 +14,10 @@ module.exports = function createDefaultLogger(name, path) {
     },
   ];
 
-  return LoggerBuilder.create().name(name).addStreams(streamConfigurations).build();
+  const logger = (new LoggerBuilder()).name(name).addStreams(streamConfigurations).build();
+  const factory = new LoggerFactory(logger);
+
+  factory.turnOnNativeLogRotation();
+
+  return factory;
 };
