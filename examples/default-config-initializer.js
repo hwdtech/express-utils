@@ -13,7 +13,7 @@ function createDefaultConfig(path, requiredFields) {
   return new Config(nconfInstance);
 }
 
-const config = createDefaultConfig(__dirname + '/config.json');
+const config = createDefaultConfig(`${__dirname}/config.json`);
 
 assert.equal(config.get('foo'), 'bar');
 assert.equal(config.get('nested:property'), 'value');

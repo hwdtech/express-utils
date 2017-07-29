@@ -29,7 +29,7 @@ function createLoggerFactory(name, path) {
 
 const loggerFactory = createLoggerFactory(
   'my-logger',
-  __dirname + '/example.log'
+  `${__dirname}/example.log`
 );
 const logger = loggerFactory.getLogger('my-logger:child');
 
