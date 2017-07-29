@@ -2,12 +2,12 @@ const LoggerBuilder = require('../lib/logging/BunyanBuilder');
 const Logger = require('../lib/logging/Logger');
 const LoggerFactory = require('../lib/logging/LoggerFactory');
 
-module.exports = function createDefaultLogger(name, path) {
+function createLoggerFactory(name, path) {
   const streamConfigurations = [
     {
-      type: path,
+      type: 'file',
       level: 'info',
-      file: path,
+      path,
     },
     {
       level: 'debug',
@@ -22,4 +22,14 @@ module.exports = function createDefaultLogger(name, path) {
   factory.turnOnNativeLogRotation();
 
   return factory;
-};
+}
+
+const loggerFactory = createLoggerFactory('my-logger', __dirname + '/example.log');
+const logger = loggerFactory.getLogger('my-logger:child');
+
+logger.fatal(new Error('no way'));
+logger.error(new Error('I can handle that'));
+logger.warn('You better don\'t do this again');
+logger.info('I\'m working here');
+logger.debug('Look at this');
+logger.trace('Never mind');
