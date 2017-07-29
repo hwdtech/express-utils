@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
-    "prepush": "npm lint",
+    "prepush": "npm run lint",
     "fmt": "prettier --write --single-quote --trailing-comma none './**/*.js'",
     "lint": "eslint ./"
   },
