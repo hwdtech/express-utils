@@ -1,10 +1,13 @@
-const ConfigurationBuilder = require('../lib/ConfigurationBuilder');
+const ConfigurationBuilder = require('../lib/configuration/NconfBuilder');
+const Config = require('../lib/configuration/Config');
 
 module.exports = function createDefaultConfig(path, requiredFields) {
-  return new ConfigurationBuilder()
+  const nconfInstance = new ConfigurationBuilder()
     .fromFile(path)
     .useArgs()
     .fromEnv()
     .setRequiredFields(requiredFields)
     .build();
+
+  return new Config(nconfInstance);
 };
