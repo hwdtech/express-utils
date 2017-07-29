@@ -7,15 +7,18 @@ function createLoggerFactory(name, path) {
     {
       type: 'file',
       level: 'info',
-      path,
+      path
     },
     {
       level: 'debug',
-      type: 'console',
-    },
+      type: 'console'
+    }
   ];
 
-  const bunyanLogger = (new LoggerBuilder()).name(name).addStreams(streamConfigurations).build();
+  const bunyanLogger = new LoggerBuilder()
+    .name(name)
+    .addStreams(streamConfigurations)
+    .build();
   const appLogger = new Logger(bunyanLogger);
   const factory = new LoggerFactory(appLogger);
 
@@ -24,12 +27,15 @@ function createLoggerFactory(name, path) {
   return factory;
 }
 
-const loggerFactory = createLoggerFactory('my-logger', __dirname + '/example.log');
+const loggerFactory = createLoggerFactory(
+  'my-logger',
+  __dirname + '/example.log'
+);
 const logger = loggerFactory.getLogger('my-logger:child');
 
 logger.fatal(new Error('no way'));
 logger.error(new Error('I can handle that'));
-logger.warn('You better don\'t do this again');
-logger.info('I\'m working here');
+logger.warn("You better don't do this again");
+logger.info("I'm working here");
 logger.debug('Look at this');
 logger.trace('Never mind');
