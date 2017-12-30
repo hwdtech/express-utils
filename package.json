@@ -9,6 +9,7 @@
     "postlint": "dtslint types",
     "pretest": "npm run lint",
     "test": "jest",
+    "test:watch": "jest --watch",
     "fmt": "prettier --write './**/*.js'",
     "precommit": "lint-staged",
     "prepush": "npm test"
@@ -49,7 +50,6 @@
     "printWidth": 100
   },
   "jest": {
-    "testEnvironment": "node",
-    "notify": true
+    "testEnvironment": "node"
   }
 }

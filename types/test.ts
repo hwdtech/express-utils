@@ -4,7 +4,6 @@ import { ConfigBuilder, LoggerBuilder, LoggerFactory, StreamType, LogLevel, Logg
 new ConfigBuilder()
   .fromArgs()
   .fromFile('test')
-  .override({ foo: 'bar' })
   .fromEnv()
   .setRequiredFields(['foo'])
   .build();

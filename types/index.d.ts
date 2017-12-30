@@ -20,7 +20,6 @@ declare module 'express-utils' {
     fromEnv(): ConfigBuilder;
     fromFile(file: string): ConfigBuilder;
     fromArgs(): ConfigBuilder;
-    override(overrides: Object): ConfigBuilder;
     setRequiredFields(keys: string[]): ConfigBuilder;
     build(): Config
   }
