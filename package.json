@@ -50,6 +50,7 @@
     "printWidth": 100
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "collectCoverage": true
   }
 }
