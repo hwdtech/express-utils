@@ -3,42 +3,52 @@
   "version": "0.0.0",
   "description": "Utility belt for express applications",
   "main": "index.js",
+  "types": "types",
   "scripts": {
+    "lint": "eslint ./",
+    "lint:types": "dtslint types",
+    "test": "jest",
+    "fmt": "prettier --write './**/*.js'",
     "precommit": "lint-staged",
-    "prepush": "npm run lint",
-    "fmt": "prettier --write --single-quote --trailing-comma none './**/*.js'",
-    "lint": "eslint ./"
+    "prepush": "npm run lint"
+  },
+  "engines": {
+    "node": ">= 6.10.x <= 8.9.x"
   },
   "author": "Maxim Malov <m.malov.v@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "bunyan": "^1.8.8",
     "bunyan-debug-stream": "^1.0.8",
-    "nconf": "0.8.4",
+    "nconf": "0.10.0",
     "nconf-yaml": "1.0.2"
   },
   "devDependencies": {
+    "dtslint": "0.2.0",
     "eslint": "^4.3.0",
-    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-config-airbnb-base": "12.1.0",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-prettier": "2.1.2",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-prettier": "2.4.0",
     "husky": "^0.14.3",
-    "lint-staged": "^4.0.2",
+    "jest-cli": "22.0.4",
+    "lint-staged": "6.0.0",
     "prettier": "^1.5.3"
   },
   "lint-staged": {
-    "lib/**/*.js": [
-      "fmt",
+    "*.js": [
+      "prettier --write",
       "eslint",
       "git add"
     ]
   },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 100
+  },
   "jest": {
     "testEnvironment": "node",
-    "testMatch": [
-      ".test\\.js$"
-    ],
     "notify": true
   }
 }

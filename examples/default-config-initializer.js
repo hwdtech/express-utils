@@ -1,16 +1,13 @@
 const assert = require('assert');
-const ConfigurationBuilder = require('../lib/configuration/NconfBuilder');
-const Config = require('../lib/configuration/Config');
+const ConfigurationBuilder = require('../lib/ConfigBuilder');
 
 function createDefaultConfig(path, requiredFields) {
-  const nconfInstance = new ConfigurationBuilder()
+  return new ConfigurationBuilder()
     .fromFile(path)
-    .useArgs()
+    .fromArgs()
     .fromEnv()
     .setRequiredFields(requiredFields)
     .build();
-
-  return new Config(nconfInstance);
 }
 
 const config = createDefaultConfig(`${__dirname}/config.json`);
