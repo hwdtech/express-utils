@@ -1,5 +1,5 @@
 {
-  "name": "@maxmalov/express-utils",
+  "name": "express-utils",
   "version": "0.1.0",
   "description": "Utility belt for express applications",
   "main": "index.js",
@@ -17,7 +17,7 @@
   "engines": {
     "node": ">= 6.10.x <= 8.9.x"
   },
-  "author": "Maxim Malov <m.malov.v@gmail.com>",
+  "author": "Maxim Malov <mmalov@hwdtech.ru>",
   "license": "MIT",
   "dependencies": {
     "bunyan": "^1.8.8",
