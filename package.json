@@ -6,11 +6,12 @@
   "types": "types",
   "scripts": {
     "lint": "eslint ./",
-    "lint:types": "dtslint types",
+    "postlint": "dtslint types",
+    "pretest": "npm run lint",
     "test": "jest",
     "fmt": "prettier --write './**/*.js'",
     "precommit": "lint-staged",
-    "prepush": "npm run lint"
+    "prepush": "npm test"
   },
   "engines": {
     "node": ">= 6.10.x <= 8.9.x"
