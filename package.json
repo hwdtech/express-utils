@@ -5,7 +5,7 @@
   "main": "index.js",
   "types": "types",
   "scripts": {
-    "lint": "eslint ./",
+    "lint": "eslint ./ --fix",
     "postlint": "dtslint types",
     "pretest": "npm run lint",
     "test": "jest",
@@ -51,6 +51,7 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "collectCoverageFrom": ["lib/**/*.js"]
   }
 }
