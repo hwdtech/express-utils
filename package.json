@@ -1,6 +1,6 @@
 {
   "name": "@maxmalov/express-utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Utility belt for express applications",
   "main": "index.js",
   "types": "types",
@@ -52,6 +52,8 @@
   "jest": {
     "testEnvironment": "node",
     "collectCoverage": true,
-    "collectCoverageFrom": ["lib/**/*.js"]
+    "collectCoverageFrom": [
+      "lib/**/*.js"
+    ]
   }
 }
