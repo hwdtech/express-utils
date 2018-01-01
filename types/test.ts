@@ -18,8 +18,9 @@ const level: LogLevel = 'my-level';
 new LoggerBuilder()
   .name('cool')
   .addStream({
-    type: 'file',
-    level: 'trace'
+    type: 'stream',
+    level: 'trace',
+    stream: process.stdout
   })
   .addSerializer('req', () => {})
   .build();

@@ -1,5 +1,3 @@
-import { Writable } from 'stream';
-
 export interface Config {
   get(prop: string): any
 }
@@ -29,7 +27,7 @@ export type LogLevel = 'trace' | 'debug' | 'info' | 'warn' | 'error';
 export interface StreamConfiguration {
   type: StreamType,
   level: LogLevel,
-  stream?: Writable,
+  stream?: NodeJS.WritableStream | NodeJS.WriteStream,
   path?: string
 }
 
