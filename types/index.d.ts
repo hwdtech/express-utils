@@ -23,7 +23,7 @@ export class ConfigBuilder {
   build(): Config
 }
 
-export type StreamType = 'raw' | 'file' | 'pretty';
+export type StreamType = 'raw' | 'file' | 'pretty' | 'stream';
 export type LogLevel = 'trace' | 'debug' | 'info' | 'warn' | 'error';
 
 export interface StreamConfiguration {
